@@ -1,6 +1,12 @@
+fastcgi-daemon2 (2.10-6) unstable; urgency=low
+
+  * exception handling fixed in RequestThreadPool
+
+ -- Ilya Golubtsov (Ilya) <golubtsov@yandex-team.ru>  Tue, 20 Sep 2011 18:25:06 +0400
+
 fastcgi-daemon2 (2.10-5) unstable; urgency=low
 
-  * sspec fixed
+  * spec fixed
 
  -- Ilya Golubtsov (Ilya) <golubtsov@yandex-team.ru>  Tue, 16 Aug 2011 12:33:10 +0400
 
