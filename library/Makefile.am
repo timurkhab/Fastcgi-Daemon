@@ -8,4 +8,4 @@ libfastcgi_daemon2_la_SOURCES = component.cpp config.cpp cookie.cpp except.cpp \
 
 AM_CPPFLAGS = -I../include -I../config @xml_CFLAGS@
 AM_CXXFLAGS = -pthread
-AM_LDFLAGS = -lpthread -ldl -lfcgi -lfcgi++ -lssl @BOOST_THREAD_LDFLAGS@ @BOOST_REGEX_LDFLAGS@ @xml_LIBS@
+AM_LDFLAGS = -lpthread -ldl -lfcgi -lfcgi++ -lssl @BOOST_LDFLAGS@ @BOOST_THREAD_LDFLAGS@ @BOOST_REGEX_LDFLAGS@ @xml_LIBS@

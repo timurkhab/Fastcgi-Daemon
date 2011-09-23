@@ -18,6 +18,9 @@ AC_DEFUN([AX_BOOST_LIB],
 	if test -f "$ax_boost_prefix/lib/lib$ax_check.so"; then
 		ax_library="$ax_check"
 	fi
+	if test -f "$ac_boost_lib_path/lib$ax_check.so"; then
+		ax_library="$ax_check"
+	fi
 	$1="$ax_library"
 	AC_MSG_RESULT([$ax_library])
 ])
