@@ -55,6 +55,15 @@ Config::create(int &argc, char *argv[], HelpFunc func) {
 	throw std::logic_error(stream.str());
 }
 
+const std::string&
+Config::filename() const {
+	return filename_;
+}
+
+void
+Config::setFilename(const std::string &name) {
+	filename_ = name;
+}
 
 XmlConfig::XmlConfig(const char *file) :
 	doc_(NULL), regex_("\\$\\{([A-Za-z][A-Za-z0-9\\-]*)\\}")
@@ -64,7 +73,9 @@ XmlConfig::XmlConfig(const char *file) :
 		if (!f) {
 			throw std::runtime_error(std::string("can not open ").append(file));
 		}
-	
+
+		setFilename(file);
+
 		doc_ = XmlDocHelper(xmlParseFile(file));
 		XmlUtils::throwUnless(NULL != doc_.get());
 		if (NULL == xmlDocGetRootElement(doc_.get())) {

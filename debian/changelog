@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-7) unstable; urgency=low
+
+  * filename field added to Config
+
+ -- Ilya Golubtsov (Ilya) <golubtsov@yandex-team.ru>  Tue, 11 Oct 2011 18:52:29 +0400
+
 fastcgi-daemon2 (2.10-6) unstable; urgency=low
 
   * exception handling fixed in RequestThreadPool

@@ -48,9 +48,17 @@ public:
 	static std::auto_ptr<Config> create(const char *file);
 	static std::auto_ptr<Config> create(int &argc, char *argv[], HelpFunc func = NULL);
 
+	const std::string& filename() const;
+
+protected:
+	void setFilename(const std::string &name);
+
 private:
 	Config(const Config &);
 	Config& operator = (const Config &);
+
+private:
+	std::string filename_;
 };
 
 } // namespace fastcgi
