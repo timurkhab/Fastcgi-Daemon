@@ -58,8 +58,8 @@ Parser::statusToString(short status) {
 
 		case 500: return "Internal Error";
 		case 501: return "Not implemented";
-		case 502: return "Service temporarily overloaded";
-		case 503: return "Gateway timeout";
+		case 502: return "Bad Gateway";
+		case 503: return "Service Unavailable";
 	}
 	return "Unknown status";
 }

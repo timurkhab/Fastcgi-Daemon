@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-8) unstable; urgency=low
+
+  * pool max-delay option added
+
+ -- Ilya Golubtsov (Ilya) <golubtsov@yandex-team.ru>  Fri, 28 Oct 2011 15:10:23 +0400
+
 fastcgi-daemon2 (2.10-7) unstable; urgency=low
 
   * filename field added to Config

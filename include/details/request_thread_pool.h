@@ -33,16 +33,20 @@ struct RequestTask {
 	boost::shared_ptr<Request> request;
 	std::vector<Handler*> handlers;
 	boost::shared_ptr<RequestIOStream> request_stream;
+	boost::uint64_t start;
 };
 
 class RequestsThreadPool : public ThreadPool<RequestTask> {
 public:
-	RequestsThreadPool(const unsigned threadsNumber, const unsigned queueLength,
+	RequestsThreadPool(const unsigned threadsNumber, const unsigned queueLength, fastcgi::Logger *logger);
+	RequestsThreadPool(const unsigned threadsNumber, const unsigned queueLength, boost::uint64_t delay,
 		fastcgi::Logger *logger);
 	virtual ~RequestsThreadPool();
 	virtual void handleTask(RequestTask task);
+	boost::uint64_t delay() const;
 private:
 	fastcgi::Logger *logger_;
+	boost::uint64_t delay_;
 };
 
 } // namespace fastcgi

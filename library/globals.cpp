@@ -106,6 +106,7 @@ Globals::initPools() {
         const std::string poolName = config_->asString(*p + "/@name");
         const int threadsNumber = config_->asInt(*p + "/@threads");
         const int queueLength = config_->asInt(*p + "/@queue");
+        const int delay = config_->asInt(*p + "/@max-delay", 0);
 
 		maxTasksInProcessCounter += (threadsNumber + queueLength);
 		if (maxTasksInProcessCounter > 65535) {
@@ -120,8 +121,9 @@ Globals::initPools() {
 			continue;
 		}
 
-		pools_.insert(make_pair(poolName, boost::shared_ptr<RequestsThreadPool>(
-			new RequestsThreadPool(threadsNumber, queueLength, logger_))));
+		pools_.insert(make_pair(poolName, boost::shared_ptr<RequestsThreadPool>(delay ?
+				new RequestsThreadPool(threadsNumber, queueLength, delay, logger_) :
+				new RequestsThreadPool(threadsNumber, queueLength, logger_))));
     }
 
     for (std::set<std::string>::const_iterator i = poolsNeeded.begin(); i != poolsNeeded.end(); ++i) {
