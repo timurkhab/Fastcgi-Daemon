@@ -1,8 +1,11 @@
 #include "settings.h"
 
+#include "details/server.h"
+
+#include <sys/time.h>
+
 #include "details/globals.h"
 #include "details/handlerset.h"
-#include "details/server.h"
 
 #include "fastcgi2/logger.h"
 
