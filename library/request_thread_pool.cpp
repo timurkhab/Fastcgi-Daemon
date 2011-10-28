@@ -1,8 +1,8 @@
 #include "settings.h"
 
-#ifdef HAVE_DMALLOC_H
-#include <dmalloc.h>
-#endif
+#include "details/request_thread_pool.h"
+
+#include <sys/time.h>
 
 #include <fastcgi2/except.h>
 #include <fastcgi2/handler.h>
@@ -11,7 +11,10 @@
 #include <fastcgi2/stream.h>
 
 #include "details/handler_context.h"
-#include "details/request_thread_pool.h"
+
+#ifdef HAVE_DMALLOC_H
+#include <dmalloc.h>
+#endif
 
 namespace fastcgi
 {
