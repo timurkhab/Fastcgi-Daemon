@@ -452,16 +452,19 @@ RequestImpl::attach(RequestIOStream *stream, char *env[]) {
 	}
 
 	const std::string &type = getContentType();
-	if (strncasecmp("multipart/form-data", type.c_str(), sizeof("multipart/form-data") - 1) == 0) {
+	if (0 == strncasecmp("multipart/form-data", type.c_str(), sizeof("multipart/form-data") - 1)) {
 		std::string boundary = Parser::getBoundary(Range::fromString(type));
 		if (!boundary.empty()) {
 		    Parser::parseMultipart(this, body_, boundary);
 		}
 	}
-	else if (strncasecmp("text/plain", type.c_str(), sizeof("text/plain") - 1) &&
-			strncasecmp("application/octet-stream", type.c_str(), sizeof("application/octet-stream") - 1))
-	{
-		StringUtils::parse(body_, args_);
+	else {
+		if (0 != strncasecmp("text/plain", type.c_str(), sizeof("text/plain") - 1) &&
+			0 != strncasecmp("application/octet-stream", type.c_str(), sizeof("application/octet-stream") - 1) &&
+			!disablePostParams())
+		{
+			StringUtils::parse(body_, args_);
+		}
 	}
 
 	if (!post_buffer.isNil()) {
@@ -471,6 +474,17 @@ RequestImpl::attach(RequestIOStream *stream, char *env[]) {
 		pos = serializeFiles(post_buffer, pos);
 		pos = serializeArgs(post_buffer, pos);
 	}
+}
+
+bool
+RequestImpl::disablePostParams() const {
+	const std::string& disable_params = Parser::get(vars_, "DISABLE_POST_PARAMS");
+	if (disable_params.empty()) {
+		return false;
+	}
+	return 0 == strcasecmp("yes", disable_params.c_str()) ||
+		   0 == strcasecmp("true", disable_params.c_str()) ||
+		   0 == strcasecmp("1", disable_params.c_str());
 }
 
 void

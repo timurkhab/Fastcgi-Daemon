@@ -160,6 +160,7 @@ public:
 private:
 	friend class Parser;
 	void sendHeadersInternal();
+	bool disablePostParams() const;
 
 	boost::uint64_t serializeEnv(DataBuffer &buffer, boost::uint64_t add_size);
 	boost::uint64_t serializeInt(DataBuffer &buffer, boost::uint64_t pos, boost::uint64_t val);

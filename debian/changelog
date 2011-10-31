@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-9) unstable; urgency=low
+
+  * disable post params option added
+
+ -- Ilya Golubtsov (Ilya) <golubtsov@yandex-team.ru>  Mon, 31 Oct 2011 18:23:34 +0400
+
 fastcgi-daemon2 (2.10-8) unstable; urgency=low
 
   * pool max-delay option added
