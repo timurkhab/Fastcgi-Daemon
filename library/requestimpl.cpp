@@ -156,8 +156,16 @@ RequestImpl::getRequestMethod() const {
 
 std::streamsize
 RequestImpl::getContentLength() const {
-	return boost::lexical_cast<std::streamsize>(
-		Parser::get(headers_, CONTENT_LENGTH_KEY));
+	const std::string& header = Parser::get(headers_, CONTENT_LENGTH_KEY);
+	if (header.empty()) {
+		return 0;
+	}
+	try {
+		return boost::lexical_cast<std::streamsize>(header);
+	}
+	catch (boost::bad_lexical_cast&) {
+	}
+	return 0;
 }
 
 const std::string&

@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-10) unstable; urgency=low
+
+  * getContentLength method fixed in case of exceptions
+
+ -- Ilya Golubtsov (Ilya) <golubtsov@yandex-team.ru>  Tue, 01 Nov 2011 18:27:33 +0400
+
 fastcgi-daemon2 (2.10-9) unstable; urgency=low
 
   * disable post params option added
