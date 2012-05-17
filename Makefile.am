@@ -1,3 +1,4 @@
+ACLOCAL_AMFLAGS = -I config
 AUTOMAKE_OPTIONS = 1.9 foreign
 
 SUBDIRS = include library main example syslog request-cache statistics file-logger

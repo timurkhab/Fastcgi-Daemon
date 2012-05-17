@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-11) unstable; urgency=low
+
+  * Fixed build on Ubuntu 12.04 Presice
+
+ -- Anton Kortunov <toshic@yandex-team.ru>  Thu, 17 May 2012 15:54:56 +0400
+
 fastcgi-daemon2 (2.10-10) unstable; urgency=low
 
   * getContentLength method fixed in case of exceptions
