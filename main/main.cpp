@@ -5,6 +5,8 @@
 #include <iostream>
 #include <stdexcept>
 
+#include <errno.h>
+
 #include <sys/types.h>
 #include <sys/stat.h>
 
