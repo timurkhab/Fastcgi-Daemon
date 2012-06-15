@@ -5,6 +5,9 @@
 #include <iostream>
 #include <stdexcept>
 
+#include <sys/types.h>
+#include <sys/stat.h>
+
 #include "fcgi_server.h"
 #include "fastcgi2/config.h"
 #include "details/globals.h"
@@ -14,6 +17,58 @@
 #endif
 
 fastcgi::FCGIServer *server;
+
+bool
+daemonize() {
+	pid_t pid = fork();
+	if (pid == -1) {
+		std::stringstream ss;
+		ss << "Could not become a daemon: fork #1 failed: " << errno;
+		throw std::logic_error(ss.str());
+	}
+	if (pid != 0) {
+		_exit(0); // exit parent
+	}
+
+	pid_t sid = setsid();
+	if (sid == -1) {
+		std::stringstream ss;
+		ss << "Could not become a daemon: setsid failed: " << errno;;
+		throw std::logic_error(ss.str());
+	}
+
+	// check fork for child
+	pid = fork();
+	if (pid == -1) {
+		std::stringstream ss;
+		ss << "Could not become a daemon: fork #2 failed: " << errno;
+		throw std::logic_error(ss.str());
+	}
+	if (pid != 0) {
+		_exit(0); // exit session leader
+	}
+
+	for (int i = getdtablesize(); i--; ) {
+		close(i);
+	}
+	umask(0002); // disable: S_IWOTH
+	chdir("/");
+
+	const char *devnull = "/dev/null";
+	stdin = fopen(devnull, "a+");
+	if (stdin == NULL) {
+		return false;
+	}
+	stdout = fopen(devnull, "w");
+	if (stdout == NULL) {
+		return false;
+	}
+	stderr = fopen(devnull, "w");
+	if (stderr == NULL) {
+		return false;
+	}
+	return true;
+}
 
 void
 signalHandler(int signo) {
@@ -33,12 +88,20 @@ setUpSignalHandlers() {
 }
 
 int
-main(int argc, char *argv[]) {
-	
+main(int argc, char *argv[]) {	
 	using namespace fastcgi;
 	try {
-	    std::auto_ptr<Config> config = Config::create(argc, argv);
-	    boost::shared_ptr<Globals> globals(new Globals(config.get()));
+		for (int i = 1; i < argc; ++i) {
+			if (!strcmp(argv[i], "--daemon")) {
+				if (!daemonize()) {
+					return EXIT_FAILURE;
+				}
+				break;
+			}
+		}
+
+		std::auto_ptr<Config> config = Config::create(argc, argv);
+		boost::shared_ptr<Globals> globals(new Globals(config.get()));
 		FCGIServer server(globals);
 		::server = &server;
 		setUpSignalHandlers();
