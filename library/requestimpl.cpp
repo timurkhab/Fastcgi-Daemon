@@ -749,24 +749,24 @@ RequestImpl::parseCookies(DataBuffer buffer, boost::uint64_t pos) {
 
 boost::uint64_t
 RequestImpl::parseVars(DataBuffer buffer, boost::uint64_t pos) {
-    boost::uint64_t field_size = 0;
-    pos = parseInt(buffer, pos, field_size);
-    boost::uint64_t pos_end = pos + field_size;
-    if (pos_end > buffer.size()) {
-    	throw std::runtime_error("Cannot parse request vars");
-    }
-    while (pos < pos_end) {
+	boost::uint64_t field_size = 0;
+	pos = parseInt(buffer, pos, field_size);
+	boost::uint64_t pos_end = pos + field_size;
+	if (pos_end > buffer.size()) {
+		throw std::runtime_error("Cannot parse request vars");
+	}
+	while (pos < pos_end) {
 		std::string name, value;
 		pos = parseString(buffer, pos, name);
 		pos = parseString(buffer, pos, value);
 		vars_.insert(std::make_pair(name, value));
-    }
-    return pos;
+	}
+	return pos;
 }
 
 boost::uint64_t
 RequestImpl::parseBody(DataBuffer buffer, boost::uint64_t pos) {
-    boost::uint64_t field_size = 0;
+	boost::uint64_t field_size = 0;
 	pos = parseInt(buffer, pos, field_size);
 	boost::uint64_t pos_end = pos + field_size;
 	if (pos_end > buffer.size()) {
@@ -778,13 +778,13 @@ RequestImpl::parseBody(DataBuffer buffer, boost::uint64_t pos) {
 
 boost::uint64_t
 RequestImpl::parseFiles(DataBuffer buffer, boost::uint64_t pos) {
-    boost::uint64_t field_size = 0;
+	boost::uint64_t field_size = 0;
 	pos = parseInt(buffer, pos, field_size);
 	boost::uint64_t pos_end = pos + field_size;
-    if (pos_end > buffer.size()) {
-    	throw std::runtime_error("Cannot parse request files");
-    }
-    while (pos < pos_end) {
+	if (pos_end > buffer.size()) {
+		throw std::runtime_error("Cannot parse request files");
+	}
+	while (pos < pos_end) {
 		std::string name, remote_name, type;
 		pos = parseString(buffer, pos, name);
 		pos = parseString(buffer, pos, remote_name);
@@ -796,35 +796,41 @@ RequestImpl::parseFiles(DataBuffer buffer, boost::uint64_t pos) {
 		DataBuffer file_buffer = DataBuffer(body_, offset + body_.beginIndex(),
 			offset + length + body_.beginIndex());
 		files_.insert(std::make_pair(name, File(remote_name, type, file_buffer)));
-    }
-    return pos;
+	}
+	return pos;
 }
 
 boost::uint64_t
 RequestImpl::parseArgs(DataBuffer buffer, boost::uint64_t pos) {
-    boost::uint64_t field_size = 0;
+	boost::uint64_t field_size = 0;
 	pos = parseInt(buffer, pos, field_size);
 	boost::uint64_t pos_end = pos + field_size;
-    if (pos_end > buffer.size()) {
-    	throw std::runtime_error("Cannot parse request args");
-    }
-    while (pos < pos_end) {
+	if (pos_end > buffer.size()) {
+		throw std::runtime_error("Cannot parse request args");
+	}
+	while (pos < pos_end) {
 		std::string name, value;
 		pos = parseString(buffer, pos, name);
 		pos = parseString(buffer, pos, value);
+
+		if (std::string::npos != value.find('\r') || std::string::npos != value.find('\n') ||
+			std::string::npos != value.find('\n')) {
+			value = StringUtils::urlencode(Range::fromString(value));
+		}
+
 		args_.push_back(std::make_pair(name, value));
-    }
-    return pos;
+	}
+	return pos;
 }
 
 void
 RequestImpl::parse(DataBuffer buffer) {
-    boost::uint64_t pos = parseHeaders(buffer, 0);
-    pos = parseCookies(buffer, pos);
-    pos = parseVars(buffer, pos);
-    pos = parseBody(buffer, pos);
-    pos = parseFiles(buffer, pos);
-    pos = parseArgs(buffer, pos);
+	boost::uint64_t pos = parseHeaders(buffer, 0);
+	pos = parseCookies(buffer, pos);
+	pos = parseVars(buffer, pos);
+	pos = parseBody(buffer, pos);
+	pos = parseFiles(buffer, pos);
+	pos = parseArgs(buffer, pos);
 }
 
 void
