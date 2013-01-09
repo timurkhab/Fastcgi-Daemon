@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-16) unstable; urgency=low
+
+  * fixed copy/past
+
+ -- Leonid A. Movsesjan <lmovsesjan@yandex-team.ru>  Wed, 09 Jan 2013 13:08:23 +0400
+
 fastcgi-daemon2 (2.10-15) unstable; urgency=low
 
   * fixed termination symbols in query params

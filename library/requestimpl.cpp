@@ -814,7 +814,7 @@ RequestImpl::parseArgs(DataBuffer buffer, boost::uint64_t pos) {
 		pos = parseString(buffer, pos, value);
 
 		if (std::string::npos != value.find('\r') || std::string::npos != value.find('\n') ||
-			std::string::npos != value.find('\n')) {
+			std::string::npos != value.find('\0')) {
 			value = StringUtils::urlencode(Range::fromString(value));
 		}
 
