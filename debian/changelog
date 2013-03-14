@@ -1,3 +1,10 @@
+fastcgi-daemon2 (2.10-18) unstable; urgency=low
+
+  * fixed critical bug (double boundary at the end runs daemon in
+    infinite loop)
+
+ -- Leonid A. Movsesjan <lmovsesjan@yandex-team.ru>  Thu, 14 Mar 2013 20:00:52 +0400
+
 fastcgi-daemon2 (2.10-17) unstable; urgency=low
 
   * Added configurable time format to file logger
