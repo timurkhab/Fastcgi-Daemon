@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-19) unstable; urgency=low
+
+  * one more try
+
+ -- Leonid A. Movsesjan <lmovsesjan@yandex-team.ru>  Thu, 14 Mar 2013 22:50:47 +0400
+
 fastcgi-daemon2 (2.10-18) unstable; urgency=low
 
   * fixed critical bug (double boundary at the end runs daemon in
