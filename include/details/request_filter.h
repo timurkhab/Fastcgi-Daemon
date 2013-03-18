@@ -83,6 +83,16 @@ private:
     RegexFilter regex_;
 };
 
+class RefererFilter : public RequestFilter {
+public:
+    RefererFilter(const std::string &regex);
+    ~RefererFilter();
+
+    virtual bool check(const Request *request) const;
+private:
+    RegexFilter regex_;
+};
+
 class ParamFilter : public RequestFilter {
 public:
     ParamFilter(const std::string &name, const std::string &regex);

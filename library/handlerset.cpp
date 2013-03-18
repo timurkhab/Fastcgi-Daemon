@@ -58,6 +58,12 @@ HandlerSet::init(const Config *config, const ComponentSet *componentSet) {
                   "address", boost::shared_ptr<RequestFilter>(new AddressFilter(address_filter))));
         }
 
+        std::string referer_filter = config->asString(*k + "/@referer", "");
+        if (!referer_filter.empty()) {
+              handlerDesc.filters.push_back(std::make_pair(
+                  "referer", boost::shared_ptr<RequestFilter>(new RefererFilter(referer_filter))));
+        }
+
         std::vector<std::string> q;
         config->subKeys(*k + "/param", q);
         for (std::vector<std::string>::const_iterator it = q.begin(); it != q.end(); ++it) {
@@ -113,6 +119,10 @@ HandlerSet::findURIHandler(const Request *request) const {
                 break;
             }
             else if (f->first == "port" && !f->second->check(request)) {
+                matched = false;
+                break;
+            }
+            else if (f->first == "referer" && !f->second->check(request)) {
                 matched = false;
                 break;
             }

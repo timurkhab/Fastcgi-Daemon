@@ -71,6 +71,18 @@ AddressFilter::check(const Request *request) const {
     return regex_.check(request->getServerAddr());
 }
 
+RefererFilter::RefererFilter(const std::string &regex) : regex_(regex)
+{}
+
+RefererFilter::~RefererFilter()
+{}
+
+bool
+RefererFilter::check(const Request *request) const {
+    if (!request->hasHeader("Referer"));
+
+    return regex_.check(request->getHeader("Referer"));
+}
 
 ParamFilter::ParamFilter(const std::string &name, const std::string &regex) :
         name_(name), regex_(regex)
