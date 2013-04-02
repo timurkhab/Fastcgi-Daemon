@@ -4,9 +4,9 @@ Member functions:
 
 |Function|Description|
 |--------|-----------|
-|[onLoad](#methodonload)|Callback method, called at component load.|
-|[onUnload](#methodonunload)|Callback method, called at component unload.|
-|[context](#methodcontext)|Returns a component context.|
+|[onLoad](#-onload)|Callback method, called at component load.|
+|[onUnload](#-onunload)|Callback method, called at component unload.|
+|[context](#-context)|Returns a component context.|
 
 ## <a id="methodonload"/> onLoad
 Callback method, called at component load.
