@@ -2,4 +2,4 @@ Fastcgi Daemon - Yandex's opensource framework for highload FastCGI applications
 
 [Документация](https://github.com/lmovsesjan/Fastcgi-Daemon/wiki/Документация)
 
-[Documentation](https://github.com/lmovsesjan/Fastcgi-Daemon/master/doc/en/Introduction.md)
+[Documentation](https://github.com/lmovsesjan/Fastcgi-Daemon/blob/master/doc/en/Introduction.md)
