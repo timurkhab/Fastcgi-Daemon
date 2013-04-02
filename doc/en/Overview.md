@@ -1,11 +1,11 @@
 FastCGI-daemon is a multithreaded platform, designed to run FastCGI applications written in C++. Applications should be designed as a plug-ins using `libfastcgi-daemon2` which is a part of a project.
 
-![FastCGI-daemon structure](https://raw.github.com/lmovsesjan/Fastcgi-Daemon/master/doc/daemon-arc-en.png)
+![FastCGI-daemon structure](../daemon-arc-en.png)
 
 Daemon consists of some thread pools. One of them is a socket-pool which is responsible for interaction with HTTP-server, others run custom FastCGI-applications.
 
 # Packages
-The project is supporter on Linux Ubuntu (Hardy, Lucid è Precise).
+The project is supporter on Linux Ubuntu (Hardy, Lucid ï¿½ Precise).
 
 
 |Package|Description|
