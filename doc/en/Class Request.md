@@ -6,58 +6,58 @@ Member functions:
 
 |Function|Description|
 |-----|--------|
-|[getServerPort](#metodgetserverport)|Get `SERVER_PORT` environment variable.|
-|[getHost](#metodgethost)|Get HTTP-header `Host`.|
-|[getServerAddr](#metodgetserveraddr)|Get HTTP-server ip. `SERVER_ADDR` environment variable.|
-|[getPathInfo](#metodgetpathinfo)|Get `PATH_INFO` environment variable.|
-|[getPathTranslated](#metodgetpathtranslated)|Get `PATH_INFO` concatenated with `DOCUMENT_ROOT`. `PATH_TRANSLATED` environment variable.|
-|[getScriptName](#metodgetscriptname)|Get `SCRIPT_NAME` environment variable. For example, `/requested_resource/`.|
-|[getScriptFilename](#metodgetscriptfilename)|Get `SCRIPT_FILENAME` environment variable.|
-|[getDocumentRoot](#metodgetdocumentroot)|Get `DOCUMENT_ROOT`environment variable. For example, `/etc/nginx/html`.|
-|[getRemoteUser](#metodgetremoteuser)|Get `REMOTE_USER` environment variable.|
-|[getRemoteAddr](#metodgetremoteaddr)|Get `REMOTE_ADDR` environment variable.|
-|[getQueryString](#metodgetquerystring)|Get `QUERY_STRING` environment variable.|
-|[getRequestMethod](#metodgetrequestmethod)|Get `REQUEST_METHOD` environment variable.|
-|[getContentLength](#metodgetcontentlength)|Get size of the request body.|
-|[getContentType](#metodgetcontenttype)|Get `Content-Type` HTTP-header.|
-|[getURI](#metodgeturi)|Get 'SCRIPT_NAME' concatenated with request arguments. For example, `/requested_resource/?arg1=1&arg2=arg2`.|
-|[getUrl](#metodgeturl)|Get URL. For example, `http://localhost/requested_resource/?arg1=1&arg2=arg2`.|
-|[countArgs](#metodcountargs)|Get number of request arguments.|
-|[hasArg](#metodhasarg)|Check for argument existence.|
-|[getArg](#metodgetarg)|Get argument value.|
-|[argNames](#metodargnames)|Get argument names.|
-|[coutHeaders](#metodcoutheaders)|Get number of HTTP-headers.|
-|[hasHeader](#metodhasheader)|Check for header existence.|
-|[getHeader](#metodgetheader)|Get header value.|
-|[headerNames](#metodheadernames)|Get header names.|
-|[countCookie](#metodcountcookie)|Count cookies.|
-|[hasCookie](#metodhascookie)|Check for cookie existence.|
-|[getCookie](#metodgetcookie)|Get cookie value.|
-|[cookieNames](#metodcookienames)|Get cookie names.|
-|[hasFile](#metodhasfile)|Check for a file entity existence.|
-|[remoteFiles](#metodremotefiles)|Get file entity names.|
-|[remoteFileName](#metodremotefilename)|Get filename of file entity.|
-|[remoteFileType](#metodremotefiletype)|Get Content-Type of a file.|
-|[remoteFile](#metodremotefile)|Get file.|
-|[isSecure](#metodissecure)|Check the protocol (HTTP or HTTPS).|
-|[requestBody](#metodrequestbody)|Get request body.|
-|[setCookie](#metodsetcookie)|Set Set-Cookie header.|
-|[setStatus](#metodsetstatus)|Set response status.|
-|[sendError](#metodsenderror)|Set response status and send an error as HTML-page.|
-|[setHeader](#metodsetheader)|Set header value.|
-|[write](#metodwrite)|Write to response body.|
-|[outputHeader](#metodoutputheader)|Get response header.|
-|[reset](#metodreset)|Set HTTP-status of response to 200 and clear all of the request fields.|
-|[attach](#metodattach)|Attach data to the response body.|
-|[isProcessed](#metodisprocessed)|Check for request processing completion. The property is set by [markAsProcessed](#metodmarkasprocessed).|
-|[markAsProcessed](#metodmarkasprocessed)|Set property of the request processing completion.|
-|[redirectBack](#metodredirectback)|Redirect request to `Referer` (HTTP-header).|
-|[redirectToPath](#metodredirecttopath)|Redirect request to the path.|
-|[setContentType](#metodsetcontenttype)|Set Content-Type header.|
-|[setContentEncoding](#metodsetcontentencoding)|Set Content-Encoding header.|
-|[parse](#metodparse)|Parse [DataBuffer](Class DataBuffer) as a request.|
-|[serialize](#metodserialize)|Convert request to a buffer.|
-|[status](#metodstatus)|Get response status.|
+|[getServerPort](#-getserverport)|Get `SERVER_PORT` environment variable.|
+|[getHost](#-gethost)|Get HTTP-header `Host`.|
+|[getServerAddr](#-getserveraddr)|Get HTTP-server ip. `SERVER_ADDR` environment variable.|
+|[getPathInfo](#-getpathinfo)|Get `PATH_INFO` environment variable.|
+|[getPathTranslated](#-getpathtranslated)|Get `PATH_INFO` concatenated with `DOCUMENT_ROOT`. `PATH_TRANSLATED` environment variable.|
+|[getScriptName](#-getscriptname)|Get `SCRIPT_NAME` environment variable. For example, `/requested_resource/`.|
+|[getScriptFilename](#-getscriptfilename)|Get `SCRIPT_FILENAME` environment variable.|
+|[getDocumentRoot](#-getdocumentroot)|Get `DOCUMENT_ROOT`environment variable. For example, `/etc/nginx/html`.|
+|[getRemoteUser](#-getremoteuser)|Get `REMOTE_USER` environment variable.|
+|[getRemoteAddr](#-getremoteaddr)|Get `REMOTE_ADDR` environment variable.|
+|[getQueryString](#-getquerystring)|Get `QUERY_STRING` environment variable.|
+|[getRequestMethod](#-getrequestmethod)|Get `REQUEST_METHOD` environment variable.|
+|[getContentLength](#-getcontentlength)|Get size of the request body.|
+|[getContentType](#-getcontenttype)|Get `Content-Type` HTTP-header.|
+|[getURI](#-geturi)|Get 'SCRIPT_NAME' concatenated with request arguments. For example, `/requested_resource/?arg1=1&arg2=arg2`.|
+|[getUrl](#-geturl)|Get URL. For example, `http://localhost/requested_resource/?arg1=1&arg2=arg2`.|
+|[countArgs](#-countargs)|Get number of request arguments.|
+|[hasArg](#-hasarg)|Check for argument existence.|
+|[getArg](#-getarg)|Get argument value.|
+|[argNames](#-argnames)|Get argument names.|
+|[coutHeaders](#-coutheaders)|Get number of HTTP-headers.|
+|[hasHeader](#-hasheader)|Check for header existence.|
+|[getHeader](#-getheader)|Get header value.|
+|[headerNames](#-headernames)|Get header names.|
+|[countCookie](#-countcookie)|Count cookies.|
+|[hasCookie](#-hascookie)|Check for cookie existence.|
+|[getCookie](#-getcookie)|Get cookie value.|
+|[cookieNames](#-cookienames)|Get cookie names.|
+|[hasFile](#-hasfile)|Check for a file entity existence.|
+|[remoteFiles](#-remotefiles)|Get file entity names.|
+|[remoteFileName](#-remotefilename)|Get filename of file entity.|
+|[remoteFileType](#-remotefiletype)|Get Content-Type of a file.|
+|[remoteFile](#-remotefile)|Get file.|
+|[isSecure](#-issecure)|Check the protocol (HTTP or HTTPS).|
+|[requestBody](#-requestbody)|Get request body.|
+|[setCookie](#-setcookie)|Set Set-Cookie header.|
+|[setStatus](#-setstatus)|Set response status.|
+|[sendError](#-senderror)|Set response status and send an error as HTML-page.|
+|[setHeader](#-setheader)|Set header value.|
+|[write](#-write)|Write to response body.|
+|[outputHeader](#-outputheader)|Get response header.|
+|[reset](#-reset)|Set HTTP-status of response to 200 and clear all of the request fields.|
+|[attach](#-attach)|Attach data to the response body.|
+|[isProcessed](#-isprocessed)|Check for request processing completion. The property is set by [markAsProcessed](#-markasprocessed).|
+|[markAsProcessed](#-markasprocessed)|Set property of the request processing completion.|
+|[redirectBack](#-redirectback)|Redirect request to `Referer` (HTTP-header).|
+|[redirectToPath](#-redirecttopath)|Redirect request to the path.|
+|[setContentType](#-setcontenttype)|Set Content-Type header.|
+|[setContentEncoding](#-setcontentencoding)|Set Content-Encoding header.|
+|[parse](#-parse)|Parse [DataBuffer](Class DataBuffer) as a request.|
+|[serialize](#-serialize)|Convert request to a buffer.|
+|[status](#-status)|Get response status.|
 
 
 ## <a id="metodgetserverport"/> getServerPort
@@ -632,7 +632,7 @@ void attach(RequestIOStream *stream, char *env[])
 
 
 ## <a id="metodisprocessed"/> isProcessed
-Checks for request processing completion. The property is set by [markAsProcessed](#metodmarkasprocessed).
+Checks for request processing completion. The property is set by [markAsProcessed](#-markasprocessed).
 
 ```
 bool isProcessed() const

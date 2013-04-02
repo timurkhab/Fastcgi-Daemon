@@ -5,24 +5,24 @@ Member functions:
 |Function|Description|
 |-----|--------|
 |[DataBuffer](#konstruktorklassa)|Constructor.|
-|[at](#metodat)|Returns a symbol.|
-|[empty](#metodempty)|Checks whether the buffer is empty.|
-|[size](#metodsize)|Returns size of a buffer in bytes.|
-|[resize](#metodresize)|Changes size of a buffer.|
-|[begin](#metodbegin)|Returns the first segment of a buffer.|
-|[end](#metodend)|Returns the end of a buffer.|
-|[trim](#metodtrim)|Trims a buffer.|
-|[trimn](#metodtrimn)|Gets a fragment from a buffer.|
-|[split](#metodsplit)|Splits a buffer in two.|
-|[startsWith](#metodstartswith)|Compares start of a buffer and a string.|
-|[startsWithCI](#metodstartswithci)|Compares start of a buffer and a string case insensitive.|
-|[endsWith](#metodendswith)|Compares the end of a buffer and a string.|
-|[endsWithCI](#metodendswithci)|Compares the end of a buffer and a string case insensitive.|
-|[toString](#metodtostring)|Returns buffer as a sring.|
-|[read](#metodread)|Reads data from a buffer.|
-|[write](#metodwrite)|Writes data to a buffer.|
-|[beginIndex](#metodbeginindex)|Returns number of the first byte in a buffer.|
-|[endIndex](#metodendindex)|Returns number of the last byte in a buffer.|
+|[at](#-at)|Returns a symbol.|
+|[empty](#-empty)|Checks whether the buffer is empty.|
+|[size](#-size)|Returns size of a buffer in bytes.|
+|[resize](#-resize)|Changes size of a buffer.|
+|[begin](#-begin)|Returns the first segment of a buffer.|
+|[end](#-end)|Returns the end of a buffer.|
+|[trim](#-trim)|Trims a buffer.|
+|[trimn](#-trimn)|Gets a fragment from a buffer.|
+|[split](#-split)|Splits a buffer in two.|
+|[startsWith](#-startswith)|Compares start of a buffer and a string.|
+|[startsWithCI](#-startswithci)|Compares start of a buffer and a string case insensitive.|
+|[endsWith](#-endswith)|Compares the end of a buffer and a string.|
+|[endsWithCI](#-endswithci)|Compares the end of a buffer and a string case insensitive.|
+|[toString](#-tostring)|Returns buffer as a sring.|
+|[read](#-read)|Reads data from a buffer.|
+|[write](#-write)|Writes data to a buffer.|
+|[beginIndex](#-beginindex)|Returns number of the first byte in a buffer.|
+|[endIndex](#-endindex)|Returns number of the last byte in a buffer.|
 
 
 ## <a id="konstruktorklassa"/>Constructor

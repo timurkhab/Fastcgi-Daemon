@@ -4,17 +4,17 @@ Member functions:
 
 |Function|Description|
 |-----|--------|
-|[Cookie](#metodkonstruktorklassa)|Constructor.|
-|[name](#metodname)|Returns the name of a cookie.|
-|[value](#metodvalue)|Returns the value of a cookie.|
-|[secure](#metodsecure)|Sets/returns the property of HTTPS usage.|
-|[expires](#metodexpires)|Sets/returns a cookie expiration time.|
-|[permanent](#metodpermanent)|Sets/returns the property of permanency.|
-|[httpOnly](#metodhttponly)|Sets/returns the HTTP-only property.|
-|[path](#metodpath)|Sets/returns a cookie path.|
-|[domain](#metoddomain)|Sets a cookie domain.|
-|[toString](#metodtostring)|Returns a cookie string.|
-|[urlEncode](#metodurlencode)|Sets a property of urlencode. If `true`, then `toString` returns an urlencoded value.|
+|[Cookie](#-konstruktorklassa)|Constructor.|
+|[name](#-name)|Returns the name of a cookie.|
+|[value](#-value)|Returns the value of a cookie.|
+|[secure](#-secure)|Sets/returns the property of HTTPS usage.|
+|[expires](#-expires)|Sets/returns a cookie expiration time.|
+|[permanent](#-permanent)|Sets/returns the property of permanency.|
+|[httpOnly](#-httponly)|Sets/returns the HTTP-only property.|
+|[path](#-path)|Sets/returns a cookie path.|
+|[domain](#-domain)|Sets a cookie domain.|
+|[toString](#-tostring)|Returns a cookie string.|
+|[urlEncode](#-urlencode)|Sets a property of urlencode. If `true`, then `toString` returns an urlencoded value.|
 
 A custom component can get a request cookie and create new cookies with this class. When creating a new cookie its properties must be set by `secure, expires, permanent, httpOnly` etc. methods.
 A cookie can be exported to the string with `toString` method.

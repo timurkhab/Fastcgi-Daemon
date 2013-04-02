@@ -4,9 +4,9 @@ Member functions:
 
 |Function|Description|
 |--------|-----------|
-|[getConfig](#metodgetconfig)|Returns [Config](Class Config) which contains the configuration parameters of FastCGI-daemon.|
-|[getComponentXPath](#metodgetcomponentxpath)|Returns XPath to the component description in the configuration file.|
-|[findComponent](#metodfindcomponent)|Returns the pointer to the existing and loaded component.|
+|[getConfig](#-getconfig)|Returns [Config](Class Config) which contains the configuration parameters of FastCGI-daemon.|
+|[getComponentXPath](#-getcomponentxpath)|Returns XPath to the component description in the configuration file.|
+|[findComponent](#-findcomponent)|Returns the pointer to the existing and loaded component.|
 
 ## <a id="metodgetconfig"/> getConfig
 Returns [Config](Class Config) which contains the configuration parameters of FastCGI-daemon.

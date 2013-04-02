@@ -4,14 +4,14 @@ Member functions:
 
 |Function|Description|
 |--------|-----------|
-|[exiting](#metodexiting)|Sends the DEBUG-level log info on exit from the function.|
-|[entering](#metodentering)|Sends the DEBUG-level log info on enter to the function.|
-|[getLevel](#metodgetlevel)|Returns logging level (DEBUG, INFO, ERROR,EMERGENCY) of an application.|
-|[setLevel](#metodsetlevel)|Sets the logging level for application.|
-|[stringToLevel](#metodstringtolevel)|Converts name of logging level into the  numeric identifier.|
-|[levelToString](#metodleveltostring)|Converts numeric identifier of logging level into its name.|
-|[debug, info, error, emerg](#metodydebuginfoerroremerg)|Sends info of DEBUG, INFO, ERROR, EMERGENCY level respectively into the log.|
-|[log](#metodlog)|Sends info of specified level into the log.|
+|[exiting](#-exiting)|Sends the DEBUG-level log info on exit from the function.|
+|[entering](#-entering)|Sends the DEBUG-level log info on enter to the function.|
+|[getLevel](#-getlevel)|Returns logging level (DEBUG, INFO, ERROR,EMERGENCY) of an application.|
+|[setLevel](#-setlevel)|Sets the logging level for application.|
+|[stringToLevel](#-stringtolevel)|Converts name of logging level into the  numeric identifier.|
+|[levelToString](#-leveltostring)|Converts numeric identifier of logging level into its name.|
+|[debug, info, error, emerg](#-ydebuginfoerroremerg)|Sends info of DEBUG, INFO, ERROR, EMERGENCY level respectively into the log.|
+|[log](#-log)|Sends info of specified level into the log.|
 
 
 ## <a id="metodexiting"/> exiting

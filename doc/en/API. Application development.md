@@ -4,16 +4,16 @@ API contains the namespace `fastcgi`, with the classes:
 
 |**Class**|**Description**|
 |---------|------------|
-|[Component](Class Component)|Abstract class, mandatory for inheritance by a custom component. It is the base of a custom component.|
-|[ComponentContext](Class ComponentContext)|Keeps the context of a custom component.|
-|[Config](Class Config)|Contains configuration settings of daemon.|
-|[Cookie](Class Cookie)|Operates with cookies.|
-|[DataBuffer](Class DataBuffer)|Operates with data.|
-|[SegmentIterator](Class SegmentIterator)|Iterator for the segmented `DataBuffer`.|
-|[Handler](Class Handler)|Abstract class, mandatory for inheritance by a custom component. It is the base of a custom request handler.|
-|[HandlerContext](Class HandlerContext)|Stores global parameters of a custom request handler.|
-|[Logger](Class Logger)|Operates with logging.|
-|[Request](Class Request)|Operates with a request. It used to parse and modify request and to create a response for it.|
+|[Component](Class Component.md)|Abstract class, mandatory for inheritance by a custom component. It is the base of a custom component.|
+|[ComponentContext](Class ComponentContext.md)|Keeps the context of a custom component.|
+|[Config](Class Config.md)|Contains configuration settings of daemon.|
+|[Cookie](Class Cookie.md)|Operates with cookies.|
+|[DataBuffer](Class DataBuffer.md)|Operates with data.|
+|[SegmentIterator](Class SegmentIterator.md)|Iterator for the segmented `DataBuffer`.|
+|[Handler](Class Handler.md)|Abstract class, mandatory for inheritance by a custom component. It is the base of a custom request handler.|
+|[HandlerContext](Class HandlerContext.md)|Stores global parameters of a custom request handler.|
+|[Logger](Class Logger.md)|Operates with logging.|
+|[Request](Class Request.md)|Operates with a request. It used to parse and modify request and to create a response for it.|
 
 Custom component must inherit from `Component` and `Handler`. Methods `onLoad()`, `onUnload()` and `handleRequest(...)` should be defined. Component should use macros defined in `ComponentFactory.h` in order to provide its functionality to daemon.
 
@@ -33,7 +33,7 @@ FCGIDAEMON_ADD_DEFAULT_FACTORY("factory2", ExampleComponent2)
 FCGIDAEMON_REGISTER_FACTORIES_END()
 ```
 
-To use syslog, custom component should get `daemon-logger` using the `findComponent` method of [ComponentContext](Class ComponentContext) class. Then use methods of [Logger](Class Logger) class as follows:
+To use syslog, custom component should get `daemon-logger` using the `findComponent` method of [ComponentContext](Class ComponentContext.md) class. Then use methods of [Logger](Class Logger.md) class as follows:
 
 ```
 fastcgi::ComponentContext *cntx = context();

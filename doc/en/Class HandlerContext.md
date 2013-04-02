@@ -6,8 +6,8 @@ Member functions:
 
 |Function|Description|
 |--------|-----------|
-|[getParam](#metodgetparam)|Returns parameter by the name.|
-|[setParam](#metodsetparam)|Sets parameter by the name.|
+|[getParam](#-getparam)|Returns parameter by the name.|
+|[setParam](#-setparam)|Sets parameter by the name.|
 
 
 ## <a id="metodgetparam"/>getParam

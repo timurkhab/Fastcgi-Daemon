@@ -4,10 +4,10 @@ Member functions:
 
 |Function|Desription|
 |--------|----------|
-|[asInt](#metodasint)|Returns the configuration parameter as an integer.|
-|[asString](#metodasstring)|Returns the configuration parameter as a string.|
-|[subKeys](#metodsubkeys)|Returns XPath to the tags with the same name.|
-|[filename](#metodfilename)|Returns a filename of configuration which daemon runs.|
+|[asInt](#-asint)|Returns the configuration parameter as an integer.|
+|[asString](#-asstring)|Returns the configuration parameter as a string.|
+|[subKeys](#-subkeys)|Returns XPath to the tags with the same name.|
+|[filename](#-filename)|Returns a filename of configuration which daemon runs.|
 
 ## <a id="metodasint"/> asInt
 Returns the configuration parameter as an integer.

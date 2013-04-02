@@ -4,8 +4,8 @@ Member functions:
 
 |Function|Description|
 |--------|-----------|
-|[onThreadStart](#metodonthreadstart)|Callback function.|
-|[handleRequest](#metodhandlerequest)|Start point of the request processing.|
+|[onThreadStart](#-onthreadstart)|Callback function.|
+|[handleRequest](#-handlerequest)|Start point of the request processing.|
 
 ## <a id="metodonthreadstart"/>Метод onThreadStart
 Callback function.
