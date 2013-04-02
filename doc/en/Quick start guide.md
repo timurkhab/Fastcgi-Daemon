@@ -151,4 +151,4 @@ $ curl -v "http://localhost/simple_res"
 < Simple-Header: Reply from csimple
 ```
 
- We�ll see "Simple-Header: Reply from csimple" in the server's response. That�s all.
+ We'll see "Simple-Header: Reply from csimple" in the server's response. That's all.
