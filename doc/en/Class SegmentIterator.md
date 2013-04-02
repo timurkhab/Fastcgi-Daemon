@@ -1,4 +1,4 @@
-Iterator for [DataBuffer](Class DataBuffer)
+Iterator for [DataBuffer](Class DataBuffer.md)
 Header `fastcgi2/data_buffer.h`.
 
 Operators:

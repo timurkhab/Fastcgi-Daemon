@@ -55,7 +55,7 @@ Member functions:
 |[redirectToPath](#-redirecttopath)|Redirect request to the path.|
 |[setContentType](#-setcontenttype)|Set Content-Type header.|
 |[setContentEncoding](#-setcontentencoding)|Set Content-Encoding header.|
-|[parse](#-parse)|Parse [DataBuffer](Class DataBuffer) as a request.|
+|[parse](#-parse)|Parse [DataBuffer](Class DataBuffer.md) as a request.|
 |[serialize](#-serialize)|Convert request to a buffer.|
 |[status](#-status)|Get response status.|
 
@@ -699,7 +699,7 @@ void setContentEncoding(const std::string &encoding)
 
 
 ## <a id="metodparse"/> parse
-Parses [DataBuffer](Class DataBuffer) as a request.
+Parses [DataBuffer](Class DataBuffer.md) as a request.
 
 ```
 void parse(DataBuffer buffer)

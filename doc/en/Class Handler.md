@@ -26,4 +26,4 @@ virtual void handleRequest(Request *req, HandlerContext *context) = 0
 |Parameter|Description|
 |---------|-----------|
 |req|A pointer to [Request](Class Request), which contains all the request info and provides functions to operate with it.|
-|context|Pointer to [HandlerContext](Class HandlerContext).|
+|context|Pointer to [HandlerContext](Class HandlerContext.md).|
