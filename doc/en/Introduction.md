@@ -4,7 +4,7 @@ API for application development is also described in this paper.
 Documentation is intended for developers and system administrators.
 
 ## Contents:
-* [Overview](Overview)
+* [Overview](Overview.md)
 * [Quick start guide](Quick start guide)
 * [Setup](Setup)
 * [API. Application development](API.-Application-development)
