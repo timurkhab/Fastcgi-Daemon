@@ -1,4 +1,4 @@
-In this section, we consider the simple installation of FastCGI-daemon in conjunction with [nginx] (http://nginx.org). Ñustom application for daemon will also be developed and tested.
+In this section, we consider the simple installation of FastCGI-daemon in conjunction with [nginx] (http://nginx.org). Custom application for daemon will also be developed and tested.
 
 
 ## nginx intallation
@@ -151,4 +151,4 @@ $ curl -v "http://localhost/simple_res"
 < Simple-Header: Reply from csimple
 ```
 
- We’ll see "Simple-Header: Reply from csimple" in the server's response. That’s all.
+ Weï¿½ll see "Simple-Header: Reply from csimple" in the server's response. Thatï¿½s all.
