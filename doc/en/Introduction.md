@@ -5,6 +5,6 @@ Documentation is intended for developers and system administrators.
 
 ## Contents:
 * [Overview](Overview.md)
-* [Quick start guide](Quick start guide)
-* [Setup](Setup)
-* [API. Application development](API.-Application-development)
+* [Quick start guide](Quick start guide.md)
+* [Setup](Setup.md)
+* [API. Application development](API. Application development.md)
