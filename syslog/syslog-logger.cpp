@@ -10,10 +10,14 @@
 #include "fastcgi2/component_factory.h"
 
 #include "syslog-logger.h"
+#include <stdio.h>
 
 #ifdef HAVE_DMALLOC_H
 #include <dmalloc.h>
 #endif
+#include <sstream>
+#include <iostream>
+
 
 namespace fastcgi
 {
@@ -32,6 +36,8 @@ SyslogLogger::SyslogLogger(ComponentContext *context) : Component(context) {
 	ident_ = config->asString(componentXPath + "/ident");
 					    
 	setLevel(stringToLevel(config->asString(componentXPath + "/level")));
+
+	requestSpecificIdent_ = (config->asString(componentXPath + "/request-specific-ident", "off") == "on");
 }
 
 SyslogLogger::~SyslogLogger() {
@@ -62,8 +68,28 @@ void SyslogLogger::handleRequest(Request *request, HandlerContext *handlerContex
 
 void SyslogLogger::log(const Level level, const char *format, va_list args) {
 	if (level >= getLevel()) {
-		std::string signedFormat = ident_ + ": " + format;
-		vsyslog(toSyslogPriority(level), signedFormat.c_str(), args);
+		std::string ident;
+
+		if (requestSpecificIdent_ && threadIdent_.get()) {
+			ident = ident_ + ":" + *threadIdent_ + ": ";
+		} else {
+			ident = ident_ + ": ";
+		}
+
+		std::string formatted(1024*10, '\0');
+
+		vsnprintf(const_cast<char *>(formatted.data()), formatted.size(), format, args);
+	
+		std::string tmp;
+		std::stringstream ss(formatted);
+
+		while (ss.good()) {
+			std::getline(ss, tmp, '\n');
+			tmp = ident + tmp;
+			syslog(toSyslogPriority(level), tmp.c_str());
+		}
+                
+		//vsyslog(toSyslogPriority(level), signedFormat.c_str(), args);
 	}
 }
 
@@ -72,6 +98,17 @@ void SyslogLogger::setLevelInternal(const Level level) {
 }
 
 void SyslogLogger::rollOver() {
+}
+
+void SyslogLogger::setRequestId(const std::string &id) {
+	threadIdent_.reset(new std::string(id));
+}
+
+std::string SyslogLogger::getRequestId() {
+	if (requestSpecificIdent_ && threadIdent_.get()) {
+		return *threadIdent_;
+	}
+	return std::string();
 }
 
 int

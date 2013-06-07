@@ -6,11 +6,12 @@
 #include "fastcgi2/handler.h"
 
 #include <string>
+#include <boost/thread.hpp>
 
 namespace fastcgi
 {
 
-class SyslogLogger : virtual public Logger, virtual public Component, virtual public Handler
+class SyslogLogger : virtual public Logger, virtual public Component, virtual public Handler, virtual public LoggerRequestId
 {
 public:
 	SyslogLogger(ComponentContext *context);
@@ -21,6 +22,9 @@ public:
 
 	virtual void handleRequest(Request *request, HandlerContext *handlerContext);
 	
+	virtual void setRequestId(const std::string &id);
+	virtual std::string getRequestId();
+
 protected:
 	virtual void log(const Level level, const char *format, va_list args);
 	virtual void setLevelInternal(const Level level);
@@ -32,6 +36,8 @@ private:
 private:
 	std::string ident_;
 	int priority_;
+	bool requestSpecificIdent_;
+	boost::thread_specific_ptr<std::string> threadIdent_;
 };
 
 } // namespace fastcgi
