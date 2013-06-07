@@ -62,14 +62,23 @@ FastcgiRequest::~FastcgiRequest() {
 
 void
 FastcgiRequest::attach() {
-    request_->attach(this, fcgiRequest_.envp);
+
     char **envp = fcgiRequest_.envp;
     for (std::size_t i = 0; envp[i]; ++i) {
         if (0 == strncasecmp(envp[i], "REQUEST_URI=", sizeof("REQUEST_URI=") - 1)) {
             url_.assign(envp[i] + sizeof("REQUEST_URI=") - 1);
-            break;
+        }
+        if (0 == strncasecmp(envp[i], "REQUEST_ID=", sizeof("REQUEST_ID=") - 1)) {
+            request_id_.assign(envp[i] + sizeof("REQUEST_ID=") - 1);
         }
     }
+
+    LoggerRequestId *logger_req_id = dynamic_cast<LoggerRequestId*>(logger_);
+    if (logger_req_id && !request_id_.empty()) {
+		logger_req_id->setRequestId(request_id_);
+    }
+
+    request_->attach(this, fcgiRequest_.envp);
 }
 
 int
