@@ -132,6 +132,12 @@ void Logger::setLevelInternal(const Level level) {
 void Logger::rollOver() {
 }
 
+LoggerRequestId::LoggerRequestId() {
+}
+
+LoggerRequestId::~LoggerRequestId() {
+}
+
 /*
 const char*
 Logger::level() const {

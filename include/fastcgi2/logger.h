@@ -59,6 +59,16 @@ private:
 	Level level_;
 };
 
+class LoggerRequestId
+{
+public:
+	LoggerRequestId();
+	virtual ~LoggerRequestId();
+
+	virtual void setRequestId(const std::string &id) = 0;
+	virtual std::string getRequestId() = 0;
+};
+
 
 class BulkLogger : public Logger {
 public:
