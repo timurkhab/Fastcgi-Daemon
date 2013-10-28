@@ -257,10 +257,10 @@ FCGIServer::handle(Endpoint *endpoint) {
 	Logger* logger = globals_->logger();
 	while (true) {
 		try {
-			boost::shared_ptr<ThreadHolder> holder = active_thread_holder_;
-			if (stopper_->stopped()) {
+			if (stopper->stopped()) {
 				return;
 			}
+			boost::shared_ptr<ThreadHolder> holder = active_thread_holder_;
 
 			Endpoint::ScopedBusyCounter busyCounter(*endpoint);
 			RequestTask task;
@@ -273,7 +273,7 @@ FCGIServer::handle(Endpoint *endpoint) {
 			busyCounter.decrement();
 			holder.reset();
 			int status = request->accept();
-			if (stopper_->stopped()) {
+			if (stopper->stopped()) {
 				return;
 			}
 			holder = active_thread_holder_;
@@ -319,14 +319,15 @@ FCGIServer::handleRequest(RequestTask task) {
 
 void
 FCGIServer::monitor() {
+    boost::shared_ptr<ServerStopper> stopper = stopper_;
 	while (true) {
-		if (stopper_->stopped()) {
+		if (stopper->stopped()) {
 			return;
 		}
 		int s = -1;
 		try {
 			s = accept(monitorSocket_, NULL, NULL);
-			if (stopper_->stopped()) {
+			if (stopper->stopped()) {
 				return;
 			}
 			if (-1 == s) {
@@ -360,7 +361,7 @@ FCGIServer::monitor() {
 					logger->error("%s, errno = %i", e.what(), errno);
 					continue;
 				}
-				if (stopper_->stopped()) {
+				if (stopper->stopped()) {
 					continue;	
 				}
 			}
