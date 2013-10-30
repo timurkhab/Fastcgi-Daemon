@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-22) unstable; urgency=low
+
+  * Fixed crash in worker threads when server is being stopped
+
+ -- Konstantin Karganov <karganov@yandex-team.ru>  Wed, 30 Oct 2013 17:34:27 +0400
+
 fastcgi-daemon2 (2.10-21) unstable; urgency=low
 
   * added referer filter
