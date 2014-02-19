@@ -60,6 +60,8 @@ public:
 	}
 
 	virtual ~ThreadPool() {
+		stop();
+		join();
 	}
 
 	void start(InitFuncType func) {
