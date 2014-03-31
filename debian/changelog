@@ -1,3 +1,10 @@
+fastcgi-daemon2 (2.10-25) lucid; urgency=low
+
+  * Added getRequestId method to the Request class
+  * Fixed request_id setup logic
+
+ -- Anton Kortunov <toshik@yandex-team.ru>  Mon, 31 Mar 2014 20:55:59 +0400
+
 fastcgi-daemon2 (2.10-24) lucid; urgency=low
 
   * added request_id support
