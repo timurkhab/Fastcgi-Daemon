@@ -74,7 +74,7 @@ FastcgiRequest::attach() {
     }
 
     LoggerRequestId *logger_req_id = dynamic_cast<LoggerRequestId*>(logger_);
-    if (logger_req_id && !request_id_.empty()) {
+    if (logger_req_id) {
 		logger_req_id->setRequestId(request_id_);
     }
 
