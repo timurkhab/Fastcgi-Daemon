@@ -39,6 +39,7 @@ private:
 	boost::shared_ptr<Request> request_;
     Logger *logger_;
     std::string url_;
+    std::string request_id_;
     Endpoint *endpoint_;
     FCGX_Request fcgiRequest_;
     ResponseTimeStatistics *statistics_;
