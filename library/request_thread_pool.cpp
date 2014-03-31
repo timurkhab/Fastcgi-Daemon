@@ -51,6 +51,11 @@ RequestsThreadPool::handleTask(RequestTask task) {
     		}
     	}
         try {
+            LoggerRequestId *logger_req_id = dynamic_cast<LoggerRequestId*>(logger_);
+            if (logger_req_id) {
+                logger_req_id->setRequestId(task.request->getRequestId());
+            }
+
             std::auto_ptr<HandlerContext> context(new HandlerContextImpl);
             for (std::vector<Handler*>::iterator i = task.handlers.begin();
                  i != task.handlers.end();
