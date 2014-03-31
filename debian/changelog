@@ -1,3 +1,13 @@
+fastcgi-daemon2 (2.10-24) lucid; urgency=low
+
+  * added request_id support
+    When request comes to FastcgiDaemon2 it tries to read REQUEST_ID Fastcgi
+    parameter. If parameter preset and current logger supports
+    LoggerRequestId interface FastcgiDaemon2 sets value of this parameter as
+    a RequestID for current request.
+
+ -- Anton Kortunov <toshik@yandex-team.ru>  Mon, 31 Mar 2014 15:29:56 +0400
+
 fastcgi-daemon2 (2.10-23) lucid; urgency=low
 
   * fixed failed assertion during thread pool destruction
