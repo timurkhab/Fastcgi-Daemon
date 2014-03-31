@@ -56,6 +56,7 @@ public:
     const std::string& getRemoteAddr() const;
     const std::string& getQueryString() const;
     const std::string& getRequestMethod() const;
+    const std::string& getRequestId() const;
 
     std::streamsize getContentLength() const;
     const std::string& getContentType() const;

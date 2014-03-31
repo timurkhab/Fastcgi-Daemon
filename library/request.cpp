@@ -80,6 +80,11 @@ Request::getRequestMethod() const {
     return impl_->getRequestMethod();
 }
 
+const std::string&
+Request::getRequestId() const {
+    return impl_->getRequestId();
+}
+
 std::streamsize
 Request::getContentLength() const {
     return impl_->getContentLength();

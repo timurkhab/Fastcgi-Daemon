@@ -45,6 +45,7 @@ static const std::string REMOTE_ADDR_KEY("REMOTE_ADDR");
 
 static const std::string QUERY_STRING_KEY("QUERY_STRING");
 static const std::string REQUEST_METHOD_KEY("REQUEST_METHOD");
+static const std::string REQUEST_ID_KEY("REQUEST_ID");
 
 File::File(DataBuffer filename, DataBuffer type, DataBuffer content) :
 	data_(content)
@@ -152,6 +153,11 @@ RequestImpl::getQueryString() const {
 const std::string&
 RequestImpl::getRequestMethod() const {
 	return Parser::get(vars_, REQUEST_METHOD_KEY);
+}
+
+const std::string&
+RequestImpl::getRequestId() const {
+	return Parser::get(vars_, REQUEST_ID_KEY);
 }
 
 std::streamsize
