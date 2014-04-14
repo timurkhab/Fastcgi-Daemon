@@ -68,12 +68,12 @@ void SyslogLogger::handleRequest(Request *request, HandlerContext *handlerContex
 
 void SyslogLogger::log(const Level level, const char *format, va_list args) {
 	if (level >= getLevel()) {
-		std::string ident;
+		std::string format_ident;
 
 		if (requestSpecificIdent_ && threadIdent_.get()) {
-			ident = ident_ + ":" + *threadIdent_ + ": ";
+			format_ident = ident_ + ":" + *threadIdent_ + ": %s";
 		} else {
-			ident = ident_ + ": ";
+			format_ident = ident_ + ": %s";
 		}
 
 		std::string formatted(1024*10, '\0');
@@ -85,8 +85,7 @@ void SyslogLogger::log(const Level level, const char *format, va_list args) {
 
 		while (ss.good()) {
 			std::getline(ss, tmp, '\n');
-			tmp = ident + tmp;
-			syslog(toSyslogPriority(level), tmp.c_str());
+			syslog(toSyslogPriority(level), format_ident.c_str(), tmp.c_str());
 		}
                 
 		//vsyslog(toSyslogPriority(level), signedFormat.c_str(), args);
