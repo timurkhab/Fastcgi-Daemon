@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-26) lucid; urgency=low
+
+  * Fixed syslog format string usage
+
+ -- Anton Kortunov <toshik@yandex-team.ru>  Mon, 14 Apr 2014 19:19:10 +0400
+
 fastcgi-daemon2 (2.10-25) lucid; urgency=low
 
   * Added getRequestId method to the Request class
