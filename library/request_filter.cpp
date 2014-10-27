@@ -79,7 +79,9 @@ RefererFilter::~RefererFilter()
 
 bool
 RefererFilter::check(const Request *request) const {
-    if (!request->hasHeader("Referer"));
+    if (!request->hasHeader("Referer")) {
+        return false;
+    }
 
     return regex_.check(request->getHeader("Referer"));
 }
