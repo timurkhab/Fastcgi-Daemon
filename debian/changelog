@@ -1,3 +1,10 @@
+fastcgi-daemon2 (2.10-27) lucid; urgency=low
+
+  * Fix broken log entries in file logger
+  * Fix request filter condition check
+
+ -- Konstantin Karganov <karganov@yandex-team.ru>  Tue, 28 Oct 2014 10:20:37 +0400
+
 fastcgi-daemon2 (2.10-26) lucid; urgency=low
 
   * Fixed syslog format string usage
