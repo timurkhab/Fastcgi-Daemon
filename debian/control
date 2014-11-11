@@ -1,7 +1,7 @@
 Source: fastcgi-daemon2
 Priority: optional
 Maintainer: Anton Kortunov <toshik@yandex-team.ru>
-Build-Depends: debhelper (>= 4.0.0),
+Build-Depends: debhelper (>= 7),
  automake,
  autotools-dev,
  libboost-dev,
@@ -13,7 +13,7 @@ Build-Depends: debhelper (>= 4.0.0),
  pkg-config,
  libssl-dev,
  autoconf-archive
-Standards-Version: 3.6.1
+Standards-Version: 3.8.0
 Section: libs
 Vcs-Git: git@github.com:lmovsesjan/Fastcgi-Daemon.git
 
