@@ -4,7 +4,7 @@ fastcgi_daemon2_SOURCES = main.cpp fcgi_server.cpp endpoint.cpp fcgi_request.cpp
 fastcgi_daemon2_LDADD = ../library/libfastcgi-daemon2.la -lfcgi -lfcgi++
 
 AM_CPPFLAGS = -I@top_srcdir@/include -I@top_srcdir@/config
-AM_LDFLAGS = @BOOST_THREAD_LDFLAGS@ -lboost_system
+AM_LDFLAGS = @BOOST_THREAD_LDFLAGS@ @BOOST_SYSTEM_LIB@
 
 noinst_HEADERS = fcgi_server.h endpoint.h fcgi_request.h
 dist_sysconf_DATA = fastcgi.conf.example
