@@ -15,6 +15,7 @@ Build-Depends: debhelper (>= 4.0.0),
  autoconf-archive
 Standards-Version: 3.6.1
 Section: libs
+Vcs-Git: git@github.com:lmovsesjan/Fastcgi-Daemon.git
 
 Package: libfastcgi-daemon2
 Section: libs
