@@ -1,6 +1,6 @@
 Source: fastcgi-daemon2
 Priority: optional
-Maintainer: Ilya Golubtsov <golubtsov@yandex-team.ru>
+Maintainer: Anton Kortunov <toshik@yandex-team.ru>
 Build-Depends: debhelper (>= 4.0.0),
  automake1.9,
  autotools-dev,

@@ -1,4 +1,4 @@
-AC_INIT([fastcgi2], [2.0-1], [golubtsov@yandex-team.ru])
+AC_INIT([fastcgi2], [2.0-1], [toshik@yandex-team.ru])
 AM_INIT_AUTOMAKE(1.9)
 
 AC_CONFIG_MACRO_DIR([config])
@@ -63,6 +63,7 @@ fi
 
 AX_BOOST_BASE([1.30])
 AX_BOOST_THREAD
+
 if test "f$BOOST_THREAD_LDFLAGS" == "f"
 then
     AC_MSG_ERROR([boost thread lib not found, unable to compile])
