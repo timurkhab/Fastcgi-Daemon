@@ -81,6 +81,8 @@ public:
 	virtual void write(std::streambuf *buf) {
 		(*out_) << buf;
 	}
+	virtual void flush() {
+	}
 private:
 	std::istream *in_;
 	std::ostream *out_;

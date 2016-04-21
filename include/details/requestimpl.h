@@ -158,6 +158,8 @@ public:
 	
 	unsigned short status() const;
 
+	void flush();
+
 private:
 	friend class Parser;
 	void sendHeadersInternal();

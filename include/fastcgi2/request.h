@@ -119,6 +119,8 @@ public:
 
     unsigned short status() const;
 
+    void flush();
+
 private:
     std::auto_ptr<RequestImpl> impl_;
 };

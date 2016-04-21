@@ -314,4 +314,9 @@ Request::status() const {
     return impl_->status();
 }
 
+void
+Request::flush() {
+    impl_->flush();
+}
+
 } // namespace fastcgi
