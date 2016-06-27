@@ -3,8 +3,6 @@
 #export DH_VERBOSE=1
 
 CXX = g++
-ACLOCAL = aclocal-1.9
-AUTOMAKE = automake-1.9
 ACLOCAL_OPTIONS = "-I /usr/share/autoconf-archive/ -I ./config/"
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
@@ -17,7 +15,7 @@ autogen: autogen-stamp
 
 autogen-stamp: configure.in
 	dh_testdir
-	ACLOCAL_OPTIONS=$(ACLOCAL_OPTIONS) AUTOMAKE=$(AUTOMAKE) ACLOCAL=$(ACLOCAL) ./autogen.sh
+	autoreconf --install
 	touch autogen-stamp
 	
 configure: configure-stamp
