@@ -181,7 +181,17 @@ FileLogger::writingThread() {
         boost::mutex::scoped_lock fdlock(fdMutex_);
         if (fd_ != -1) {
             for (std::vector<std::string>::iterator i = queueCopy.begin(); i != queueCopy.end(); ++i) {
-                ::write(fd_, i->c_str(), i->length());
+                size_t wrote = 0;
+                while( wrote < i->length()) {
+                    int res = ::write(fd_, i->c_str() + wrote, i->length() - wrote);
+                    if (res < 0) {
+                        std::cerr << "Failed to write to log " << filename_ << " : " << strerror(errno) << std::endl;
+                        break;
+                    }
+                    else {
+                        wrote += res;
+                    }
+                }
             }
         }
     }
