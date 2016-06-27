@@ -63,7 +63,6 @@ fi
 
 AX_BOOST_BASE([1.30])
 AX_BOOST_THREAD
-AX_BOOST_SYSTEM
 
 if test "f$BOOST_THREAD_LDFLAGS" == "f"
 then
