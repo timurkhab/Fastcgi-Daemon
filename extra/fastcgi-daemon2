@@ -69,7 +69,7 @@ start() {
         if [ -r /etc/fastcgi2/available/$FASTCGI.start ]; then
             . /etc/fastcgi2/available/$FASTCGI.start
         fi
-        su $FASTCGI_USER -c "/sbin/start-stop-daemon --start --background --verbose --name $NAME --exec /usr/bin/fastcgistart2.sh $FASTCGI"
+        /sbin/start-stop-daemon --chuid $FASTCGI_USER --start --background --verbose --name $NAME --exec /usr/bin/fastcgistart2.sh $FASTCGI
         if [ $? != 0 ]; then
             echo "Error: Cannot start /usr/bin/fastcgistart2.sh"
             EXIT_STATUS=1
