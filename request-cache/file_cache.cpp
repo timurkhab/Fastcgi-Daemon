@@ -75,6 +75,8 @@ public:
 	void write(std::streambuf *buf) {
 		(void)buf;
 	}
+	void flush() {
+	}
 };
 
 FileRequestCache::FileRequestCache(ComponentContext *context) :

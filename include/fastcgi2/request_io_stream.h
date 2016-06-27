@@ -26,6 +26,7 @@ public:
 	virtual int read(char *buf, int size) = 0;
 	virtual int write(const char *buf, int size) = 0;
 	virtual void write(std::streambuf *buf) = 0;
+	virtual void flush() = 0;
 };
 
 } // namespace fastcgi

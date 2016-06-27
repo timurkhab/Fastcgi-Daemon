@@ -35,6 +35,7 @@ public:
 	void write(std::streambuf *buf);
 
 	void setHandlerDesc(const HandlerSet::HandlerDescription *handler);
+	void flush();
 private:
 	boost::shared_ptr<Request> request_;
     Logger *logger_;

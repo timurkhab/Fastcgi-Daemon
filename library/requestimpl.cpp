@@ -851,4 +851,11 @@ RequestImpl::status() const {
 	return status_;
 }
 
+void
+RequestImpl::flush() {
+	if (stream_) {
+		stream_->flush();
+	}
+}
+
 } // namespace fastcgi

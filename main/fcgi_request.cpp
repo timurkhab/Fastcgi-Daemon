@@ -161,4 +161,23 @@ FastcgiRequest::setHandlerDesc(const HandlerSet::HandlerDescription *handler) {
     handler_ = handler;
 }
 
+void
+FastcgiRequest::flush() {
+    int num = FCGX_FFlush(fcgiRequest_.out);
+    if (-1 == num) {
+        std::stringstream str;
+        int error = FCGX_GetError(fcgiRequest_.out);
+        if (error > 0) {
+            char buffer[256];
+            str << "Cannot flush data to fastcgi socket: " <<
+                strerror_r(error, buffer, sizeof(buffer)) << ". ";
+        }
+        else {
+            str << "FastCGI error. ";
+        }
+        generateRequestInfo(request_.get(), str);
+        throw std::runtime_error(str.str());
+    }
+}
+
 } // namespace fastcgi
