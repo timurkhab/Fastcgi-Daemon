@@ -57,14 +57,6 @@ Requires:       %{name} = %{version}-%{release}
 Syslog for %{name}
 
 
-%package        request-cache
-Summary:        Request cache for %{name}
-Group:          System Environment/Libraries
-Requires:       %{name} = %{version}-%{release}
-
-%description    request-cache
-Request cache for %{name}
-
 %package        statistics
 Summary:        Statistics for %{name}
 Group:          System Environment/Libraries
@@ -179,10 +171,6 @@ rmdir $AVAILABLE_DIR $LOG_DIR $RUN_DIR $POSTSTART_DIR $POSTSTOP_DIR $CHECK_DIR  
 %files syslog
 %defattr(-,root,root)
 %{_libdir}/fastcgi2/fastcgi2-syslog.so.*
-
-%files request-cache
-%defattr(-,root,root)
-%{_libdir}/fastcgi2/fastcgi2-request-cache.so.*
 
 %files statistics
 %defattr(-,root,root)

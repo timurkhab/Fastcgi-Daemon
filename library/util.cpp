@@ -3,8 +3,6 @@
 #include <cstdlib>
 #include <stdexcept>
 
-#include <openssl/md5.h>
-
 #include "fastcgi2/util.h"
 #include "fastcgi2/logger.h"
 #include "details/range.h"
@@ -195,31 +193,6 @@ HttpDateUtils::parse(const char *value) {
 		}
 	}
 	return static_cast<time_t>(0);
-}
-
-std::string
-HashUtils::hexMD5(const char *key, unsigned long len) {
-
-    MD5_CTX md5handler;
-    unsigned char md5buffer[16];
-
-    MD5_Init(&md5handler);
-    MD5_Update(&md5handler, (unsigned char *)key, len);
-    MD5_Final(md5buffer, &md5handler);
-
-    char alpha[16] = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
-    unsigned char c;
-    std::string md5digest;
-    md5digest.reserve(32);
-
-    for (int i = 0; i < 16; ++i) {
-        c = (md5buffer[i] & 0xf0) >> 4;
-        md5digest.push_back(alpha[c]);
-        c = (md5buffer[i] & 0xf);
-        md5digest.push_back(alpha[c]);
-    }
-
-    return md5digest;
 }
 
 } // namespace fastcgi

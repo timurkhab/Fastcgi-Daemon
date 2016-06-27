@@ -34,13 +34,8 @@ public:
 	void testMultipartN();
 	void testMultipartRN();
 	void testMultipartRN2();
-	void testPostCache();
-	void testMultipartNCache();
-	void testMultipartRNCache();
-	void testMultipartRN2Cache();
 
 private:
-	RequestCache* getCache(Globals *globals);
 	void testPostImpl(RequestCache* cache);
 	void testMultipartNImpl(RequestCache* cache);
 	void testMultipartRNImpl(RequestCache* cache);
@@ -57,10 +52,6 @@ private:
 	CPPUNIT_TEST(testMultipartN);
 	CPPUNIT_TEST(testMultipartRN);
 	CPPUNIT_TEST(testMultipartRN2);
-	CPPUNIT_TEST(testPostCache);
-	CPPUNIT_TEST(testMultipartNCache);
-	CPPUNIT_TEST(testMultipartRNCache);
-	CPPUNIT_TEST(testMultipartRN2Cache);
 	CPPUNIT_TEST_SUITE_END();
 };
 
@@ -164,41 +155,6 @@ RequestTest::testMultipartRN() {
 void
 RequestTest::testMultipartRN2() {
 	testMultipartRN2Impl((RequestCache*)NULL);
-}
-
-void
-RequestTest::testPostCache() {
-	std::auto_ptr<Config> config = Config::create("test_cache.conf");
-	boost::shared_ptr<Globals> globals(new Globals(config.get()));
-	testPostImpl(getCache(globals.get()));
-}
-
-void
-RequestTest::testMultipartNCache() {
-	std::auto_ptr<Config> config = Config::create("test_cache.conf");
-	boost::shared_ptr<Globals> globals(new Globals(config.get()));
-	testMultipartNImpl(getCache(globals.get()));
-}
-
-void
-RequestTest::testMultipartRNCache() {
-	std::auto_ptr<Config> config = Config::create("test_cache.conf");
-	boost::shared_ptr<Globals> globals(new Globals(config.get()));
-	testMultipartRNImpl(getCache(globals.get()));
-}
-
-void
-RequestTest::testMultipartRN2Cache() {
-	std::auto_ptr<Config> config = Config::create("test_cache.conf");
-	boost::shared_ptr<Globals> globals(new Globals(config.get()));
-	testMultipartRN2Impl(getCache(globals.get()));
-}
-
-RequestCache*
-RequestTest::getCache(Globals *globals) {
-	Component* component = globals->components()->find("request-cache");
-	RequestCache* request_cache = dynamic_cast<RequestCache*>(component);
-	return request_cache;
 }
 
 void

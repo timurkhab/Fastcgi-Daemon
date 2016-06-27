@@ -1,7 +1,7 @@
 ACLOCAL_AMFLAGS = -I config
 AUTOMAKE_OPTIONS = 1.9 foreign
 
-SUBDIRS = include library main example syslog request-cache statistics file-logger
+SUBDIRS = include library main example syslog statistics file-logger
 
 if HAVE_CPPUNIT
 SUBDIRS += tests

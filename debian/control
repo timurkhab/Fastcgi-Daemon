@@ -12,7 +12,6 @@ Build-Depends: debhelper (>= 7),
  libboost-regex-dev,
  libtool,
  pkg-config,
- libssl-dev,
  autoconf-archive
 Standards-Version: 3.8.0
 Section: libs
@@ -40,13 +39,6 @@ Description: fastcgi-daemon is an application server for FastCGI
  applications wtiteen in C++. Binary to execute server.
 
 Package: libfastcgi2-filelogger
-Section: libs
-Architecture: any
-Depends: ${shlibs:Depends}, libfastcgi-daemon2 (=${Source-Version})
-Description: fastcgi-daemon is an application server for FastCGI
- applications wtiteen in C++. Binary to execute server.
-
-Package: libfastcgi2-request-cache
 Section: libs
 Architecture: any
 Depends: ${shlibs:Depends}, libfastcgi-daemon2 (=${Source-Version})

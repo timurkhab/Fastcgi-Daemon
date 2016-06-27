@@ -65,11 +65,6 @@ private:
 	virtual ~HttpDateUtils();
 };
 
-class HashUtils {
-public:
-	static std::string hexMD5(const char *key, unsigned long len);
-};
-
 } // namespace fastcgi
 
 #endif // _FASTCGI_UTIL_H_
