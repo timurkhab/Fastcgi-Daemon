@@ -1,3 +1,12 @@
+fastcgi-daemon2 (2.10-28) unstable; urgency=medium
+
+  * Removed file-cache module
+  * Implemented request flush method
+  * Fixed startup nologin user's shell
+  * Updated build scripts
+
+ -- Anton Kortunov <toshik@yandex-team.ru>  Mon, 27 Jun 2016 20:12:29 +0300
+
 fastcgi-daemon2 (2.10-27) lucid; urgency=low
 
   * Fix broken log entries in file logger
