@@ -1,3 +1,9 @@
+fastcgi-daemon2 (2.10-29) unstable; urgency=medium
+
+  * Do not link against openssl
+
+ -- Anton Kortunov <toshik@yandex-team.ru>  Tue, 28 Jun 2016 13:43:43 +0300
+
 fastcgi-daemon2 (2.10-28) unstable; urgency=medium
 
   * Removed file-cache module
